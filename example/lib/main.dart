@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:ayetstudios_flutter_sdk/ayetstudios_flutter_sdk.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
 
@@ -102,6 +103,20 @@ class _OwPageState extends State<OwPage> {
             allowsInlineMediaPlayback: true,
             onWebViewCreated: (controller) {},
             javascriptMode: JavascriptMode.unrestricted,
+            navigationDelegate: (NavigationRequest request) async {
+              final Uri url = Uri.parse(request.url);
+              if (request.url.contains('https://www.ayetstudios.com/offers/')) {
+                return NavigationDecision.navigate;
+              } else {
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                } else {
+                  print('ayeT-Studios Offerwall couldnt load outside link');
+                  return NavigationDecision.prevent;
+                }
+                return NavigationDecision.prevent;
+              }
+            },
             onPageStarted: (String url) {
               print('ayeT-Studios Offerwall loading:$url');
             },

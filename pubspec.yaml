@@ -4,18 +4,17 @@ version: 0.0.1
 homepage: https://docs.ayetstudios.com/v/product-docs/offerwall/plugins-and-wrappers/flutter
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: '>=3.0.0'
 
 dependencies:
   flutter:
-    sdk: flutter\
-webview_flutter: ^3.0.4
+    sdk: flutter
+  url_launcher: ^6.1.12
+  webview_flutter: 3.0.4
 
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
