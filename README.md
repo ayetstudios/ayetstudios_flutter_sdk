@@ -24,18 +24,20 @@ When calling the `AyetOfferwall` class, a `externalIdentifier` and an `adslotId`
 The `externalIdentifier` should be a unique, persistent identifier (alphanumeric) for the user. An example might be a unique user id or the hashed email address of the user.
 `adslotId` is the id of the `web_offerwall` adslot created in your publisher dashboard at [ayetstudios.com](https://www.ayetstudios.com).
 
-```flutter
+```dart
 AyetOfferwall(
       adslotId: 458,
       externalIdentifier: 'your-user-id-123',
+      onClose:(){
+            //The `onClose` callback function should be implemented according to your requirements.
+            //A common practice is to navigate back to screen from which offerwall was called when `onClose` callback is triggered.
+      }
 )
 ```
 
-The `onClose` callback function should be implemented according to your requirements.
-A common practice is to navigate back in your router when the `onClose` callback is triggered.
-
-```javascript
-const onClose = () => {
-  // code you want to execute on offerwall close button pressed
-};
-```
+### Example App Screenshots
+<br/>
+<p float="left">
+  <img src="https://github.com/ayetstudios/ayetstudios-website-ng/assets/48547524/2f62f07b-2a4d-4772-aec6-1188dd058d9d" width="100" />
+  <img src="https://github.com/ayetstudios/ayetstudios-website-ng/assets/48547524/b7839fd8-c499-4204-a785-8b66a36a0df8" width="100" /> 
+</p>

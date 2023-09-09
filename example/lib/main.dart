@@ -78,8 +78,12 @@ class _sdkPageState extends State<SdkPage> {
           backgroundColor: Colors.blueAccent),
       body: Center(
         child: AyetOfferwall(
-          adslotId: 458,
+          adslotId: 14114,
           externalIdentifier: 'your-user-id-123',
+          onClose:(){
+            print('ayeT-Studios Flutter SDK onClose called');
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()));
+          }
         ),
       ),
     );
@@ -99,7 +103,7 @@ class _OwPageState extends State<OwPage> {
           width: MediaQuery.of(context).size.width,
           height:MediaQuery.of(context).size.height ,
           child: WebView(
-            initialUrl: 'https://www.ayetstudios.com/offers/web_offerwall/458/desktop_web_offerwall?external_identifier=your-user-id-123',
+            initialUrl: 'https://www.ayetstudios.com/offers/web_offerwall/14114/desktop_web_offerwall?external_identifier=your-user-id-123',
             allowsInlineMediaPlayback: true,
             onWebViewCreated: (controller) {},
             javascriptMode: JavascriptMode.unrestricted,
