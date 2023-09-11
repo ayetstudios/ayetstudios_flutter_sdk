@@ -8,11 +8,9 @@
 
 <br/>
 
-
-
 ### Preparations
-Before going forward with the implementation, you should create a *web placement* and a *web offerwall adslot* in your publisher account at [ayetstudios.com](https://www.ayetstudios.com).
 
+Before going forward with the implementation, you should create a _web placement_ and a _web offerwall adslot_ in your publisher account at [ayetstudios.com](https://www.ayetstudios.com).
 
 ### How to integrate the ayeT-Studios Offerwall in your app
 
@@ -35,7 +33,24 @@ AyetOfferwall(
 )
 ```
 
+#### Android setup
+
+If you target Android, add the following snippet to your `AndroidManifest.xml`.
+
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+
+<queries>
+  <intent>
+    <action android:name="android.intent.action.VIEW"/>
+    <category android:name="android.intent.category.BROWSABLE"/>
+    <data android:scheme="https"/>
+  </intent>
+</queries>
+```
+
 ### Example App Screenshots
+
 <br/>
 <p float="left">
   <img src="https://github.com/ayetstudios/ayetstudios-website-ng/assets/48547524/2f62f07b-2a4d-4772-aec6-1188dd058d9d" width="100" />
