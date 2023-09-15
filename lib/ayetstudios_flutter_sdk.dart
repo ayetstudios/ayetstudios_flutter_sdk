@@ -5,7 +5,6 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:io' show Platform;
 
 
 
@@ -13,20 +12,24 @@ class AyetOfferwall extends StatelessWidget {
  int adslotId;
  String externalIdentifier;
  final void Function()? onClose;
+ String userAgent = '';
 
 
 AyetOfferwall({required this.adslotId,required this.externalIdentifier,this.onClose});
 
   @override
   Widget build(BuildContext context) {
-    String owUrl = 'https://www.ayetstudios.com/offers/web_offerwall/'+this.adslotId.toString()+'?external_identifier='+this.externalIdentifier+'&sdk=flutter&os_version='+Platform.operatingSystemVersion+'&os='+Platform.operatingSystem;
+    String owUrl = 'https://www.ayetstudios.com/offers/web_offerwall/'+this.adslotId.toString()+'?external_identifier='+this.externalIdentifier+'&sdk=flutter';
 
 
 
     return WebView(
           initialUrl: owUrl,
           allowsInlineMediaPlayback: true,
-          onWebViewCreated: (controller) {},
+          onWebViewCreated: (controller) {
+            this.userAgent = controller.runJavascript('navigator.userAgent;').toString();
+          },
+          userAgent:  this.userAgent,
           javascriptMode: JavascriptMode.unrestricted,
           javascriptChannels: {
             JavascriptChannel(
