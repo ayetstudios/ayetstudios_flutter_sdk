@@ -14,6 +14,21 @@ Before going forward with the implementation, you should create a _web placement
 
 ### How to integrate the ayeT-Studios Offerwall in your app
 
+**Notice** in order to integrate ayeT-Studios offerwall into your app you dont need this package you could use webView directly, or any other aproach, package is just there to make it easier for you.
+
+For now you would need to download package into your project and use local dependency
+
+```yaml
+dependencies:
+   flutter:
+     sdk: flutter
+   ayetstudios_flutter_sdk:
+     path: ./ayetstudios_flutter_sdk
+```
+Note: The ./ayetstudios_flutter_sdk above means that the ayetstudios_flutter_sdk directory containing the pubspec.yaml for the package is a sub-directory of the app.
+
+If you place the package as a directory at the same level as the app, in other words one level higher up in the directory tree, you can use ../ayetstudios_flutter_sdk (note the double dot) or a full path to the package directory.
+
 ```dart
 import 'package:ayetstudios_flutter_sdk/ayetstudios_flutter_sdk.dart';
 ```
